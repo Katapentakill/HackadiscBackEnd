@@ -1,1 +1,1 @@
-El servidor se activa con el comando nose index.js
+El servidor se activa con el comando node index.js
