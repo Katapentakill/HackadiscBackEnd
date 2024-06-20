@@ -1,6 +1,6 @@
+const sqlite3 = require('sqlite3').verbose();
 const fs = require('fs');
 const path = require('path');
-const sqlite3 = require('sqlite3').verbose();
 const csvParser = require('csv-parser');
 
 // Importar modelos
@@ -11,7 +11,7 @@ const Role = require('./models/rolesModel');
 const User = require('./models/userModel');
 const Estado = require('./models/estadoModel');
 
-// Rutas a los archivos CSV (si aplicable)
+// Ruta a los archivos CSV
 const workersCsvPath = path.join(__dirname, 'DataSet/workers.csv');
 const multicompaniesCsvPath = path.join(__dirname, 'DataSet/multicompanies.csv');
 const evaluationsCsvPath = path.join(__dirname, 'DataSet/evaluations.csv');
@@ -28,8 +28,6 @@ function createTables() {
   User.createTable(db);
   Estado.createTable(db);
 }
-
-// Función para cargar datos de roles manualmente
 function loadRolesData() {
   const roles = [
     { rol_name: 'Administrador', role_id: 1 },
@@ -64,9 +62,10 @@ function loadUsersData() {
 
   console.log('Datos de usuarios insertados en la base de datos.');
 }
-
-// Función para cargar datos de workers desde CSV (ejemplo con CSV)
+// Función para cargar datos de workers.csv
 function loadWorkersData() {
+  const workers = [];
+
   fs.createReadStream(workersCsvPath)
     .pipe(csvParser())
     .on('data', (row) => {
@@ -78,17 +77,28 @@ function loadWorkersData() {
         row.post_id,
         row.post_name,
         row.user_name,
-        row.company_name
+        row.EstadoEstado_id // Ajustado al nombre de la propiedad
       );
-      Worker.insert(db, worker);
+      workers.push(worker);
     })
     .on('end', () => {
-      console.log('Datos de workers.csv cargados en la base de datos.');
+      db.serialize(() => {
+        db.run("BEGIN TRANSACTION");
+        workers.forEach((worker) => {
+          Worker.insert(db, worker);
+        });
+        db.run("COMMIT", () => {
+          console.log('Datos de workers.csv cargados en la base de datos.');
+          db.close();
+        });
+      });
     });
 }
 
-// Función para cargar datos de multicompanies desde CSV (ejemplo con CSV)
+// Función para cargar datos de multicompanies.csv
 function loadMulticompaniesData() {
+  const multicompanies = [];
+
   fs.createReadStream(multicompaniesCsvPath)
     .pipe(csvParser())
     .on('data', (row) => {
@@ -98,15 +108,25 @@ function loadMulticompaniesData() {
         row.main_company_name,
         row.sub_company_name
       );
-      Multicompany.insert(db, multicompany);
+      multicompanies.push(multicompany);
     })
     .on('end', () => {
-      console.log('Datos de multicompanies.csv cargados en la base de datos.');
+      db.serialize(() => {
+        db.run("BEGIN TRANSACTION");
+        multicompanies.forEach((multicompany) => {
+          Multicompany.insert(db, multicompany);
+        });
+        db.run("COMMIT", () => {
+          console.log('Datos de multicompanies.csv cargados en la base de datos.');
+        });
+      });
     });
 }
 
-// Función para cargar datos de evaluations desde CSV
+// Función para cargar datos de evaluations.csv
 function loadEvaluationsData() {
+  const evaluations = [];
+
   fs.createReadStream(evaluationsCsvPath)
     .pipe(csvParser())
     .on('data', (row) => {
@@ -120,22 +140,30 @@ function loadEvaluationsData() {
         row.date,
         row.user_id
       );
-      Evaluation.insert(db, evaluation);
+      evaluations.push(evaluation);
     })
     .on('end', () => {
-      console.log('Datos de evaluations.csv cargados en la base de datos.');
-      db.close(); // Cerrar conexión a la base de datos al finalizar la carga de datos
+      db.serialize(() => {
+        db.run("BEGIN TRANSACTION");
+        evaluations.forEach((evaluation) => {
+          Evaluation.insert(db, evaluation);
+        });
+        db.run("COMMIT", () => {
+          console.log('Datos de evaluations.csv cargados en la base de datos.');
+          db.close(); // Cerrar conexión a la base de datos al finalizar la carga de datos
+        });
+      });
     });
 }
 
 // Función principal para cargar todos los datos
 function uploadData() {
   createTables(); // Crear tablas si no existen
+  loadRolesData();
+  loadUsersData();
   loadMulticompaniesData(); // Puedes comentar o eliminar si no tienes datos en multicompanies.csv
   loadWorkersData(); // Puedes comentar o eliminar si no tienes datos en workers.csv
   loadEvaluationsData(); // Puedes comentar o eliminar si no tienes datos en evaluations.csv
-  loadRolesData();
-  loadUsersData();
 }
 
 // Ejecutar la función principal para iniciar la carga de datos
