@@ -7,15 +7,6 @@ class Multicompany {
     }
   
     static createTable(db) {
-<<<<<<< Updated upstream
-      db.run(`CREATE TABLE IF NOT EXISTS Multicompanies (
-              main_company_id INTEGER NOT NULL,
-              sub_company_id INTEGER NOT NULL,
-              main_company_name TEXT NOT NULL,
-              sub_company_name TEXT NOT NULL,
-              PRIMARY KEY (main_company_id, main_company_name)
-      );`);
-=======
         db.run(`CREATE TABLE IF NOT EXISTS Multicompanies (
             main_company_id INTEGER NOT NULL,
             sub_company_id INTEGER NOT NULL,
@@ -23,7 +14,6 @@ class Multicompany {
             sub_company_name TEXT NOT NULL,
             PRIMARY KEY (main_company_id, sub_company_id)
         );`);
->>>>>>> Stashed changes
     }
   
     static insert(db, multicompany) {

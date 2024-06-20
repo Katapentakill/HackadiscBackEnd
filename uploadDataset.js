@@ -91,17 +91,11 @@ function loadEvaluationsData() {
 // Función principal para cargar todos los datos
 function uploadData() {
   createTables(); // Crear tablas si no existen
-<<<<<<< Updated upstream
-  loadMulticompaniesData();
-  loadWorkersData();
-  loadEvaluationsData();
-=======
   //loadRolesData();
   //loadUsersData();
   //loadMulticompaniesData(); // Puedes comentar o eliminar si no tienes datos en multicompanies.csv
   loadWorkersData(); // Puedes comentar o eliminar si no tienes datos en workers.csv
   //loadEvaluationsData(); // Puedes comentar o eliminar si no tienes datos en evaluations.csv
->>>>>>> Stashed changes
 }
 
 // Ejecutar la función principal para iniciar la carga de datos
