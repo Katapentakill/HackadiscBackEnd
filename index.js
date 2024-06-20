@@ -14,7 +14,7 @@ const port = process.env.PORT || 3000;
 const workerRoutes = require('./routes/workerRoutes')(db); // Pasar db a las rutas
 const companyRoutes = require('./routes/companyRoute')(db);
 const evaluationRoutes = require('./routes/evaluationRoute')(db);
-
+const authRoutes = require('./routes/authRoute')(db);
 // Configuración CORS
 app.use(cors());
 app.use(express.json());
@@ -22,6 +22,7 @@ app.use(express.json());
 app.use('/workers', workerRoutes);
 app.use('/companies', companyRoutes);
 app.use('/evaluations', evaluationRoutes);
+app.use('/auth', authRoutes);
 
 app.get('/', (req, res) => {
   res.send('¡Hola, mundo!');
