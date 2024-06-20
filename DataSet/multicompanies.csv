@@ -1,0 +1,64 @@
+main_company_id,sub_company_id,main_company_name,sub_company_name
+18,19,"Proyectos Castillo, Cuevas y Molina S.p.A.","Despacho Bustos, Soto y Villegas S.A."
+18,20,"Proyectos Castillo, Cuevas y Molina S.p.A.",Grupo Araya y Muñoz Ltda.
+18,21,"Proyectos Castillo, Cuevas y Molina S.p.A.","Contreras, López y Barrera Ltda."
+18,22,"Proyectos Castillo, Cuevas y Molina S.p.A.",Holding Cabezas y Asociados Limitada
+26,16,Pavez Ltda.,Pedro Hernán Astete Vergara E.I.R.L.
+26,17,Pavez Ltda.,"Grupo Sepúlveda, Moya y Carrasco S.p.A."
+15,27,Pavez Sociedad Anónima,Génesis Catalán E.I.R.L.
+15,28,Pavez Sociedad Anónima,Laboratorio Rojas y Asociados SPA
+15,29,Pavez Sociedad Anónima,Proyectos Baez y Aguirre S.p.A.
+18,25,"Proyectos Castillo, Cuevas y Molina S.p.A.",Bahamonde Limitada
+18,30,"Proyectos Castillo, Cuevas y Molina S.p.A.","Aguilera, Carvajal y Rojas Ltda."
+26,32,Pavez Ltda.,Martina Miriam Sandoval Araya E.I.R.L.
+42,45,Grupo Tapia y Asociados S.A.,Villanueva Sociedad Anónima
+42,46,Grupo Tapia y Asociados S.A.,"Tapia, Rojas y Sepúlveda SPA"
+42,47,Grupo Tapia y Asociados S.A.,"Grupo Salgado, Jara y Roa SPA"
+42,48,Grupo Tapia y Asociados S.A.,Luciano Miranda Arredondo EIRL
+42,49,Grupo Tapia y Asociados S.A.,Olivares Sociedad Anónima
+54,52,Holding Molina y Gatica S.A.,"Venegas, Espinoza y Martínez SPA"
+55,56,Álvarez y Cáceres Sociedad Anónima,Proyectos Ponce y Asociados Limitada
+60,44,Alfaro y Pino Ltda.,Alexis Juan Sanhueza Altamirano E.I.R.L.
+60,50,Alfaro y Pino Ltda.,Club Soto y Asociados Sociedad Anónima
+60,51,Alfaro y Pino Ltda.,Carrasco SPA
+60,57,Alfaro y Pino Ltda.,Grupo Campos y Torres SPA
+61,62,"Donoso, Alfaro y Parra S.A.",Guzmán y Sepúlveda Limitada
+61,63,"Donoso, Alfaro y Parra S.A.",Industrias Quiñones y Asociados Ltda.
+61,64,"Donoso, Alfaro y Parra S.A.",Barrera Sociedad Anónima
+61,65,"Donoso, Alfaro y Parra S.A.",Carlos Muñoz Pérez E.I.R.L.
+61,66,"Donoso, Alfaro y Parra S.A.",Meza Limitada
+72,68,Nibaldo Patricio Palacios Cofré E.I.R.L.,"Club Vega, Vásquez y Quezada SPA"
+72,70,Nibaldo Patricio Palacios Cofré E.I.R.L.,Javiera Segura E.I.R.L.
+72,71,Nibaldo Patricio Palacios Cofré E.I.R.L.,Zambrano Ltda.
+60,73,Alfaro y Pino Ltda.,"Comercial Osorio, López y Zambrano Sociedad Anónima"
+75,76,Industrias Bustamante y Pinto S.p.A.,Grupo Paredes y Vera Sociedad Anónima
+75,77,Industrias Bustamante y Pinto S.p.A.,Corporación Meza y Asociados Sociedad Anónima
+60,74,Alfaro y Pino Ltda.,María Sofía Gómez Soto EIRL
+84,85,"Despacho Díaz, López y Bello Sociedad Anónima","Pardo, Cabello y Guzmán Ltda."
+84,86,"Despacho Díaz, López y Bello Sociedad Anónima",Marcelo Opazo Ferrada E.I.R.L.
+84,87,"Despacho Díaz, López y Bello Sociedad Anónima",Anahí Irma Valenzuela Jaramillo EIRL
+60,88,Alfaro y Pino Ltda.,Carlos García EIRL
+93,94,"González, Villegas y Herrera Limitada","Leiva, Ulloa y Astorga Limitada"
+93,95,"González, Villegas y Herrera Limitada","Comercial Torres, Salgado y Romero Limitada"
+60,92,Alfaro y Pino Ltda.,Paulina Carmen Pino Durán E.I.R.L.
+60,111,Alfaro y Pino Ltda.,Molina y Benítez Limitada
+60,112,Alfaro y Pino Ltda.,Fuentes Ltda.
+60,113,Alfaro y Pino Ltda.,Corina Andrea Casanova Ramos EIRL
+60,114,Alfaro y Pino Ltda.,Ángela Rodríguez E.I.R.L.
+60,115,Alfaro y Pino Ltda.,"Ulloa, Rivera y Sandoval Limitada"
+117,119,Concha y Vásquez Ltda.,Comercial Blanco y Maldonado S.p.A.
+117,121,Concha y Vásquez Ltda.,Karen Magdalena Ibarra Muñoz EIRL
+117,122,Concha y Vásquez Ltda.,Grupo Fuentes y Asociados Limitada
+72,123,Nibaldo Patricio Palacios Cofré E.I.R.L.,"Salas, Troncoso y Ávila Limitada"
+117,124,Concha y Vásquez Ltda.,Santino Guzmán Toledo E.I.R.L.
+99,100,Morales y Arenas S.A.,"Club Soto, Rosales y Gómez S.A."
+99,110,Morales y Arenas S.A.,Despacho Astudillo y Asociados S.A.
+99,127,Morales y Arenas S.A.,Myriam Acuña Ayala EIRL
+54,53,Holding Molina y Gatica S.A.,Carrasco Limitada
+117,130,Concha y Vásquez Ltda.,Luis Juan Lagos Poblete EIRL
+117,129,Concha y Vásquez Ltda.,Paulina Espinoza EIRL
+60,131,Alfaro y Pino Ltda.,"Club Gutiérrez, Salazar y Gómez Limitada"
+54,132,Holding Molina y Gatica S.A.,Campos SPA
+133,125,Corporación Guzmán y Asociados S.p.A.,González y Luna Ltda.
+133,126,Corporación Guzmán y Asociados S.p.A.,Claudio Silva Rodríguez E.I.R.L.
+136,8,Michelle Salazar Aravena EIRL,Leiva y Vega Ltda.

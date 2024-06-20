@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "07e5745e-a9ec-4613-823e-7cf96176dfb4",
+		"name": "HackaDisc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33696577"
+	},
+	"item": [
+		{
+			"name": "Workers",
+			"item": [
+				{
+					"name": "Obtener todos los trabajadores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/workers/"
+					},
+					"response": []
+				},
+				{
+					"name": "Trabajador por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/workers/793"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
