@@ -28,8 +28,31 @@ class Multicompany {
                 }
               });
     }
-  
+
     // Métodos estáticos para obtener, actualizar, eliminar, etc.
+    
+    static getAll(db, callback) {
+      db.all(`SELECT * FROM Multicompanies`, (err, rows) => {
+        if (err) {
+          console.error('Error al obtener todas las companias:', err);
+          callback(err, null);
+        } else {
+          callback(null, rows);
+        }
+      });
+    }
+  
+    static findById(db, user_id, callback) {
+      db.get(`SELECT * FROM Multicompanies WHERE main_company_id = ?`, [user_id], (err, row) => {
+        if (err) {
+          console.error('Error al obtener compania por main_company_id:', err);
+          callback(err, null);
+        } else {
+          callback(null, row);
+        }
+      });
+    }
+
   }
   
   module.exports = Multicompany;

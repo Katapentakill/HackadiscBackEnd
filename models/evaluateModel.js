@@ -38,6 +38,29 @@ class Evaluation {
     }
   
     // Métodos estáticos para obtener, actualizar, eliminar, etc.
+
+    static getAll(db, callback) {
+      db.all(`SELECT * FROM Evaluations`, (err, rows) => {
+        if (err) {
+          console.error('Error al obtener todas las evaluaciones:', err);
+          callback(err, null);
+        } else {
+          callback(null, rows);
+        }
+      });
+    }
+  
+    static findById(db, user_id, callback) {
+      db.get(`SELECT * FROM Evaluations WHERE user_id = ?`, [user_id], (err, row) => {
+        if (err) {
+          console.error('Error al obtener evaluacion por user_id:', err);
+          callback(err, null);
+        } else {
+          callback(null, row);
+        }
+      });
+    }
+
   }
   
   module.exports = Evaluation;
