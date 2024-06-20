@@ -13,7 +13,7 @@ const authRoutes = (db) => {
         check('email', 'the field email is required').custom(verifyEmailLogin.bind(null, db)),
         check('password', 'the field password is required').not().isEmpty(),
         validateFields
-    ], login);
+    ], login.bind(null, db));
 
     router.get('/validate-token', validateToken);
 

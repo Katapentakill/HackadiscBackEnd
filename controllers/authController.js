@@ -6,24 +6,73 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/userModel')
 const Role = require('../models/rolesModel')
 
+const { verifyEmailLogin } = require("../helpers/verify-email");
 
-const login = async (req = request, res = response) => {
+const login = async (db, req, res) => {
     
   try {
 
-    console.log("---------REQ:", req.body);
+    const email = req.body.email;
+    const password = req.body.password;
+    User.findByEmail(db, email, password, (err, user) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      }
 
-    const { email, password } = req.body;
-    const db = req.app.get('db'); // Obtén la instancia de la base de datos SQLite desde Express
+      if (!user) {
+        return res.status(400).json({
+            success: false,
+            errors: [
+                {
+                    type: 'field',
+                    value: email,
+                    msg: 'Credenciales inválidas.',
+                    path: 'email',
+                    location: 'body'
+                }
+            ]
+        });
+    }
 
+    if (user.password !== password) {
+      return res.status(400).json({
+          success: false,
+          errors: [
+              {
+                  type: 'field',
+                  value: password,
+                  msg: 'Credenciales inválidas.',
+                  path: 'password',
+                  location: 'body'
+              }
+          ]
+      });
+  }
 
+  const userData = {
+    id: user.id,
+    email: user.email,
+    role_id: user.role_id,
+    nombre: user.nombre,
+    company_id: user.company_id,
+    area_id: user.area_id
+    // Añade otros campos que necesites
+};
 
-} catch (error) {
-    console.error('Error en el controlador login:', error);
-    res.status(500).json({
+// Devuelve la respuesta con los datos del usuario
+    res.status(200).json({
+      success: true,
+      data: userData
+    });
+
+      });
+
+    }catch (error) {
+        console.error('Error en el controlador login:', error);
+        res.status(500).json({
         success: false,
         message: 'Error interno del servidor'
-    });
+      });
 }
 
 };

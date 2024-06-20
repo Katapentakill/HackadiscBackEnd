@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 
 const verifyEmailLogin = async (db, email) => {
+
     return new Promise((resolve, reject) => {
         db.get('SELECT * FROM Users WHERE email = ?', [email], (err, user) => {
             if (err) {

@@ -34,6 +34,19 @@ class User {
                     }
                 });
     }
+
+    static findByEmail(db, email, password, callback) {
+        const query = `SELECT * FROM Users WHERE email = ? AND password = ?`;
+        db.get(query, [email, password], (err, row) => {
+            if (err) {
+                console.error('Error al obtener usuario por email:', err);
+                callback(err, null);
+            } else {
+                callback(null, row);
+            }
+        });
+    }
+
 }
 
 module.exports = User;
